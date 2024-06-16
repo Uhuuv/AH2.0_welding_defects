@@ -10,13 +10,13 @@ import pathlib
 temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
 
-model_path = 'AI_model/besfdsdat.pt'
+model_path = 'AI_model/best_92.pt'
 output_labels_path = 'outputs/labels'
 output_images_path = 'outputs/images'
 
 model = torch.hub.load('ultralytics/yolov5', 'custom', path=model_path, force_reload=True)
 
-def predict(image_path, model_path, conf_threshold=0.2, iou_threshold=0.45):
+def predict(image_path, model_path, conf_threshold=0.35, iou_threshold=0.45):
   
     model.conf = conf_threshold  # порог уверенности
     model.iou = iou_threshold    # порог NMS
